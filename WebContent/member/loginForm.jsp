@@ -21,22 +21,18 @@
 		text-align : center;
 	}
 	#menubar {
-		width:1024px;
 		text-align : center;
 	}
 	
 	header {
-		width:1024px;
 	}
 	
 	section {
-		width:1024px;
 		margin : 30px;
 		padding : 30px;
 		text-align : center;
 	}
 	footer {
-		width:1024px;
 		text-align : center;
 	}
 </style>
