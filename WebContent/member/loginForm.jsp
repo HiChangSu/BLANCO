@@ -42,11 +42,11 @@
 	<h3>BLANCO</h3>
 		<ul id="loginContainer">
 			<li><label for="id">로그인 : </label>
-				<input id="id" name="id" type="text" size="20"
+				<input id="id" name="id" type="text" size="10"
 				maxlength="50" placeholder="abcd1234">
 				<label for="passwd"></label>
 				<input id="passwd" name="passwd" type="password"
-				size="20" maxlength="20" placeholder="비밀번호 입력하시오">
+				size="10" maxlength="20" placeholder="비밀번호 입력하시오">
 				<button id="login">로그인</button>
 				<button id="register">회원가입</button>
 			</li>
