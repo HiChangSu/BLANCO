@@ -76,23 +76,26 @@
      body {
      	width:70%;
      }
-     p {
-     	height: 
+     .member {
+     	padding-top:200px;
+     }
+     #welcome {
+     	padding-top:70px;
      }
 </style>
 
 </head>
 	<body>
 		<header>
-		<p>BLANCO에 오신 것을 환영합니다.</p>
+		<p id="welcome">BLANCO에 오신 것을 환영합니다.</p>
 		</header>
 		
 		<section>
 			<article id="guest">
-			<p>개인 구매회원 가입하기</p>
+			<p class="member">개인 구매회원 가입하기</p>
 			</article>
 			<aside id="seller">
-			<p>판매자 회원 가입하기</p>
+			<p class="member">판매자 회원 가입하기</p>
 			</aside>
 		</section>
 	</body>
