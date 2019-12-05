@@ -91,16 +91,17 @@
 		<nav id="middlebox">
 			<nav id="logUI">
 				<input id="id" name="id" type="text" size="10"
-				maxlength="50" placeholder="abcd1234">
+				maxlength="50" placeholder="아이디">
 				<label for="passwd"></label>
 				<input id="passwd" name="passwd" type="password"
-				size="10" maxlength="20" placeholder="비밀번호 입력하시오">
+				size="10" maxlength="20" placeholder="비밀번호">
 				<button id="login">로그인</button>
 				<button id="register">회원가입</button>
 			</nav>
 			
 			<nav id="searchBar">
-				<label for="search">검색 : </label><input type="text" id="search" size="30" maxlength="60">
+				<label for="search">검색 : </label><input type="text" id="search" 
+				placeholder="검색" size="30" maxlength="60">
 			</nav>
 		</nav>
 		
