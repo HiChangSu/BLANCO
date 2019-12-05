@@ -19,7 +19,7 @@
      a {
         text-decoration: none;
        }
-
+	
      header {
      		 width:70%;
              height: 150px;
@@ -100,7 +100,8 @@
 			</nav>
 			
 			<nav id="searchBar">
-				<label for="search">검색 : </label><input type="text" id="search" size="30" maxlength="60">
+				<label for="search">검색 : </label><input type="text" id="search" name="search" 
+				placeholder="검색" size="30" maxlength="60">
 			</nav>
 		</nav>
 		
