@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -84,19 +85,19 @@
 </head>
 	<body>
 		<header>
-			<div id="logo">BLANCO
+			<div id="logo">
+				BLANCO
 			</div>
 		</header>
 		
 		<nav id="middlebox">
 			<nav id="logUI">
-				<input id="id" name="id" type="text" size="10"
-				maxlength="50" placeholder="abcd1234">
-				<label for="passwd"></label>
-				<input id="passwd" name="passwd" type="password"
-				size="10" maxlength="20" placeholder="비밀번호 입력하시오">
-				<button id="login">로그인</button>
-				<button id="register">회원가입</button>
+				<c:if test="${empty login}"> 
+					<jsp:include page="guest/logon/gLoginForm.jsp"/>
+				</c:if>
+				<c:if test="${login == 1 }">
+					<jsp:include page="seller/sloginForm.jsp"/>
+				</c:if> 
 			</nav>
 			
 			<nav id="searchBar">
