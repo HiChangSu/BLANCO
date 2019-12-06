@@ -3,9 +3,9 @@ package action;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import bean.MngrDBBean;
+import bean.SellerDBBean;
 
-public class ManagerLoginProAction implements CommandAction {
+public class SellerLoginProAction implements CommandAction {
 
 	@Override
 	public String requestPro(HttpServletRequest request,
@@ -18,7 +18,7 @@ public class ManagerLoginProAction implements CommandAction {
 	    String passwd  = request.getParameter("passwd");
 
 	    //DB와 연동해서 사용자의 인증을 처리
-	    MngrDBBean dbPro = MngrDBBean.getInstance();
+	    SellerDBBean dbPro = SellerDBBean.getInstance();
         int check = dbPro.userCheck(id,passwd);
 
         //해당 뷰(응답페이지)로 보낼 내용을 request속성에 지정
