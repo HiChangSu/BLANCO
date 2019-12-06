@@ -77,7 +77,8 @@
      	width:70%;
      }
      .member {
-     	padding-top:200px;
+     	width:100%;
+     	height:100%;
      }
      #welcome {
      	padding-top:70px;
@@ -92,10 +93,10 @@
 		
 		<section>
 			<article id="guest">
-			<p class="member">개인 구매회원 가입하기</p>
+			<input type="button" class="member" value="개인 구매회원 가입하기">
 			</article>
 			<aside id="seller">
-			<p class="member">판매자 회원 가입하기</p>
+			<input type="button" class="member" value="판매자 회원 가입하기">
 			</aside>
 		</section>
 	</body>
