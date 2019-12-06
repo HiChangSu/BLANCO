@@ -23,81 +23,42 @@
 
      header {
      		 width:100%;
-             height: 150px;
+             height: 100px;
              border: solid 1px red;
              text-align:center;
-             margin-top:200px;
         	}
      section {
      		border:solid 1px black;
-     		width:100%;
-     		height: 400px;
-     		position: relative;
-     		margin:0;
+     		width:70%;
+     		height: 600px;
+     		text-align:center;
      }
      footer {
      		border:solid 1px blue;
      		width:100%;
-     		height:100px;
+     		height:150px;
      		text-align:center;
      }
-     
-     #member {
-     	text-align:right;
-     	height:85%;
-     	margin:0;
-     }
-     
-     #menu {
-     	border:solid 1px black;
-     	text-align:center;
-     	margin:0;
-     }
-     #menu a {
-     	width:100px;
-     	margin:20px;
-     	padding:20px;
-     }
-     #guest {
-     	border:solid 1px black;
-     	width:48%;
-     	height:100%;
-     	margin:0;
-     	float:left;
-     	text-align:center;
-     }
-     #seller {
-     	border:solid 1px black;
-     	width:48%;
-     	height:100%;
-     	float:right;
-     	text-align:center;
-     }
-     body {
-     	width:70%;
-     }
-     .member {
+     #logo {
      	width:100%;
      	height:100%;
      }
-     #welcome {
-     	padding-top:70px;
+     #log {
+     	text-align:left;
+     	border:solid 1px black;
      }
 </style>
 
 </head>
 	<body>
 		<header>
-		<p id="welcome">BLANCO에 오신 것을 환영합니다.</p>
+			<div id="logo">LOGO</div>
 		</header>
-		
+		<br>
 		<section>
-			<article id="guest">
-			<input type="button" class="member" value="개인 구매회원 가입하기">
-			</article>
-			<aside id="seller">
-			<input type="button" class="member" value="판매자 회원 가입하기">
-			</aside>
+			<div id="log">로그인</div>
 		</section>
+		<br>
+		<footer>footer</footer>
 	</body>
 </html>
