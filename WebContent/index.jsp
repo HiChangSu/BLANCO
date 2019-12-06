@@ -96,7 +96,7 @@
 					<jsp:include page="guest/logon/gLoginForm.jsp"/>
 				</c:if>
 				<c:if test="${!empty login}">
-					<jsp:include page="seller/sloginForm.jsp"/>
+					<jsp:include page="guest/logon/glogoutForm.jsp"/>
 				</c:if> 
 			</nav>
 			
