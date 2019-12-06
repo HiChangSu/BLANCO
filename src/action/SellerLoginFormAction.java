@@ -3,12 +3,13 @@ package action;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class ManagerLogoutAction implements CommandAction {
+public class SellerLoginFormAction implements CommandAction {
 
 	@Override
 	public String requestPro(HttpServletRequest request,
 			HttpServletResponse response) throws Throwable {
 		// TODO Auto-generated method stub
-		return "/mngr/logon/mLogout.jsp";
+		
+		return "/mngr/logon/mLoginForm.jsp";
 	}
 }

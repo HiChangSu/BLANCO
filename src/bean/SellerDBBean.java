@@ -14,16 +14,16 @@ import javax.sql.DataSource;
 import work.crypt.BCrypt;
 import work.crypt.SHA256;
 
-public class MngrDBBean {
+public class SellerDBBean {
 	//MngrDBBean 전역 객체 생성 <- 한개의 객체만 생성해서 공유
-    private static MngrDBBean instance = new MngrDBBean();
+    private static SellerDBBean instance = new SellerDBBean();
     
     //MngrDBBean객체를 리턴하는 메소드
-    public static MngrDBBean getInstance() {
+    public static SellerDBBean getInstance() {
         return instance;
     }
     
-    private MngrDBBean() {}
+    private SellerDBBean() {}
     
     //커넥션 풀에서 커넥션 객체를 얻어내는 메소드
     private Connection getConnection() throws Exception {
@@ -72,7 +72,7 @@ public class MngrDBBean {
 	}
     
     //책 등록 메소드
-    public void insertItem(MngrDataBean item) 
+    public void insertItem(SellerDataBean item) 
     throws Exception {
         Connection conn = null;
         PreparedStatement pstmt = null;
@@ -226,100 +226,95 @@ public class MngrDBBean {
         }
 		return x;
     }
-	// 분류별또는 전체등록된 책의 정보를 얻어내는 메소드
-	public List<MngrDataBean> getBooks(String book_kind)
-    throws Exception {
-        Connection conn = null;
-        PreparedStatement pstmt = null;
-        ResultSet rs = null;
-        List<MngrDataBean> bookList=null;
-        
-        try {
-            conn = getConnection();
-            
-            String sql1 = "select * from book";
-            String sql2 = "select * from book ";
-            sql2 += "where book_kind = ? order by reg_date desc";
-            
-            if(book_kind.equals("all")||book_kind.equals("")){
-            	 pstmt = conn.prepareStatement(sql1);
-            }else{
-                pstmt = conn.prepareStatement(sql2);
-                pstmt.setString(1, book_kind);
-            }
-        	rs = pstmt.executeQuery();
-            
-            if (rs.next()) {
-                bookList = new ArrayList<MngrDataBean>();
-                do{
-                	MngrDataBean book= new MngrDataBean();
-                     
-                     book.setBook_id(rs.getInt("book_id"));
-                     book.setBook_kind(rs.getString("book_kind"));
-                     book.setBook_title(rs.getString("book_title"));
-                     book.setBook_price(rs.getInt("book_price"));
-                     book.setBook_count(rs.getShort("book_count"));
-                     book.setAuthor(rs.getString("author"));
-                     book.setPublishing_com(rs.getString("publishing_com"));
-                     book.setPublishing_date(rs.getString("publishing_date"));
-                     book.setBook_image(rs.getString("book_image"));
-                     book.setDiscount_rate(rs.getByte("discount_rate"));
-                     book.setReg_date(rs.getTimestamp("reg_date"));
-                     
-                     bookList.add(book);
-			    }while(rs.next());
-			}
-        } catch(Exception ex) {
-            ex.printStackTrace();
-        } finally {
-            if (rs != null) 
-            	try { rs.close(); } catch(SQLException ex) {}
-            if (pstmt != null) 
-            	try { pstmt.close(); } catch(SQLException ex) {}
-            if (conn != null) 
-            	try { conn.close(); } catch(SQLException ex) {}
-        }
-		return bookList;
-    }
+//	// 분류별또는 전체등록된 책의 정보를 얻어내는 메소드
+//	public List<MngrDataBean> getBooks(String book_kind)
+//    throws Exception {
+//        Connection conn = null;
+//        PreparedStatement pstmt = null;
+//        ResultSet rs = null;
+//        List<MngrDataBean> bookList=null;
+//        
+//        try {
+//            conn = getConnection();
+//            
+//            String sql1 = "select * from book";
+//            String sql2 = "select * from book ";
+//            sql2 += "where book_kind = ? order by reg_date desc";
+//            
+//            if(book_kind.equals("all")||book_kind.equals("")){
+//            	 pstmt = conn.prepareStatement(sql1);
+//            }else{
+//                pstmt = conn.prepareStatement(sql2);
+//                pstmt.setString(1, book_kind);
+//            }
+//        	rs = pstmt.executeQuery();
+//            
+//            if (rs.next()) {
+//                bookList = new ArrayList<MngrDataBean>();
+//                do{
+//                	MngrDataBean book= new MngrDataBean();
+//                     
+//                     book.setBook_id(rs.getInt("book_id"));
+//                     book.setBook_kind(rs.getString("book_kind"));
+//                     book.setBook_title(rs.getString("book_title"));
+//                     book.setBook_price(rs.getInt("book_price"));
+//                     book.setBook_count(rs.getShort("book_count"));
+//                     book.setAuthor(rs.getString("author"));
+//                     book.setPublishing_com(rs.getString("publishing_com"));
+//                     book.setPublishing_date(rs.getString("publishing_date"));
+//                     book.setBook_image(rs.getString("book_image"));
+//                     book.setDiscount_rate(rs.getByte("discount_rate"));
+//                     book.setReg_date(rs.getTimestamp("reg_date"));
+//                     
+//                     bookList.add(book);
+//			    }while(rs.next());
+//			}
+//        } catch(Exception ex) {
+//            ex.printStackTrace();
+//        } finally {
+//            if (rs != null) 
+//            	try { rs.close(); } catch(SQLException ex) {}
+//            if (pstmt != null) 
+//            	try { pstmt.close(); } catch(SQLException ex) {}
+//            if (conn != null) 
+//            	try { conn.close(); } catch(SQLException ex) {}
+//        }
+//		return bookList;
+//    }
 	
-	// 쇼핑몰 메인에 표시하기 위해서 사용하는 분류별 신간책목록을 얻어내는 메소드
-	public MngrDataBean[] getBooks(String book_kind,int count)
+	// 쇼핑몰 메인에 표시하기 위해서 사용하는 물품 목록을 얻어내는 메소드
+	public SellerDataBean[] getItem(String it_num,int count)
     throws Exception {
         Connection conn = null;
         PreparedStatement pstmt = null;
         ResultSet rs = null;
-        MngrDataBean bookList[]=null;
+        SellerDataBean itemList[]=null;
         int i=0;
         
         try {
             conn = getConnection();
             
-            String sql = "select * from book where book_kind = ? ";
-            sql += "order by reg_date desc limit ?,?";
+            String sql = "select * from item where it_num = ? ";
+            sql += "order by it_deadline desc limit ?,?";
             
             pstmt = conn.prepareStatement(sql);
-            pstmt.setString(1, book_kind);
+            pstmt.setString(1, it_num);
             pstmt.setInt(2, 0);
             pstmt.setInt(3, count);
         	rs = pstmt.executeQuery();
 
             if (rs.next()) {
-                bookList = new MngrDataBean[count];
+                itemList = new SellerDataBean[count];
                 do{
-                	MngrDataBean book= new MngrDataBean();
-                    book.setBook_id(rs.getInt("book_id"));
-                    book.setBook_kind(rs.getString("book_kind"));
-                    book.setBook_title(rs.getString("book_title"));
-                    book.setBook_price(rs.getInt("book_price"));
-                    book.setBook_count(rs.getShort("book_count"));
-                    book.setAuthor(rs.getString("author"));
-                    book.setPublishing_com(rs.getString("publishing_com"));
-                    book.setPublishing_date(rs.getString("publishing_date"));
-                    book.setBook_image(rs.getString("book_image"));
-                    book.setDiscount_rate(rs.getByte("discount_rate"));
-                    book.setReg_date(rs.getTimestamp("reg_date"));
+                	SellerDataBean item= new SellerDataBean();
+                    item.setIt_num(rs.getString("it_num"));
+                    item.setIt_name(rs.getString("it_name"));
+                    item.setIt_amount(rs.getInt("it_amount"));
+                    item.setIt_company(rs.getString("it_company"));
+                    item.setIt_deadline(rs.getTimestamp("it_deadline"));
+                    item.setIt_cost(rs.getInt("it_cost"));
                      
-                    bookList[i]=book;
+                    itemList[i]=item;
                      
                     i++;
 			    }while(rs.next());
@@ -334,40 +329,36 @@ public class MngrDBBean {
             if (conn != null) 
             	try { conn.close(); } catch(SQLException ex) {}
         }
-		return bookList;
+		return itemList;
     }
 	
-	// bookId에 해당하는 책의 정보를 얻어내는 메소드로 
-    //등록된 책을 수정하기 위해 수정폼으로 읽어들기이기 위한 메소드
-	public MngrDataBean getBook(int bookId)
+	// 물품 넘버에 해당하는 책의 정보를 얻어내는 메소드로 
+    //등록된 아이템을 수정하기 위해 수정폼으로 읽어들기이기 위한 메소드
+	public SellerDataBean getItem(String it_num)
     throws Exception {
         Connection conn = null;
         PreparedStatement pstmt = null;
         ResultSet rs = null;
-        MngrDataBean book=null;
+        SellerDataBean item=null;
         
         try {
             conn = getConnection();
             
             pstmt = conn.prepareStatement(
-            	"select * from book where book_id = ?");
-            pstmt.setInt(1, bookId);
+            	"select * from item where it_num = ?");
+            pstmt.setString(1, it_num);
             
             rs = pstmt.executeQuery();
 
             if (rs.next()) {
-                book = new MngrDataBean();
+                item = new SellerDataBean();
                 
-                book.setBook_kind(rs.getString("book_kind"));
-                book.setBook_title(rs.getString("book_title"));
-                book.setBook_price(rs.getInt("book_price"));
-                book.setBook_count(rs.getShort("book_count"));
-                book.setAuthor(rs.getString("author"));
-                book.setPublishing_com(rs.getString("publishing_com"));
-                book.setPublishing_date(rs.getString("publishing_date"));
-                book.setBook_image(rs.getString("book_image"));
-                book.setBook_content(rs.getString("book_content"));
-                book.setDiscount_rate(rs.getByte("discount_rate"));
+                item.setIt_num(rs.getString("it_num"));
+                item.setIt_name(rs.getString("it_name"));
+                item.setIt_amount(rs.getInt("it_amount"));
+                item.setIt_company(rs.getString("it_company"));
+                item.setIt_deadline(rs.getTimestamp("it_deadline"));
+                item.setIt_cost(rs.getInt("it_cost"));
 			}
         } catch(Exception ex) {
             ex.printStackTrace();
@@ -379,11 +370,11 @@ public class MngrDBBean {
             if (conn != null) 
             	try { conn.close(); } catch(SQLException ex) {}
         }
-		return book;
+		return item;
     }
     
-    // 등록된 책의 정보를 수정시 사용하는 메소드
-    public void updateBook(MngrDataBean book, int bookId)
+    // 등록된 물품 정보를 수정시 사용하는 메소드
+    public void updateBook(SellerDataBean item, String it_num)
     throws Exception {
         Connection conn = null;
         PreparedStatement pstmt = null;
@@ -392,24 +383,18 @@ public class MngrDBBean {
         try {
             conn = getConnection();
             
-            sql = "update book set book_kind=?,book_title=?,book_price=?";
-            sql += ",book_count=?,author=?,publishing_com=?,publishing_date=?";
-            sql += ",book_image=?,book_content=?,discount_rate=?";
-            sql += " where book_id=?";
+            sql = "update item set it_name = ?,it_amount = ?,it_company = ?,it_deadline = ?,it_cost = ?";
+            sql += " where it_num= ?";
             
             pstmt = conn.prepareStatement(sql);
             
-            pstmt.setString(1, book.getBook_kind());
-            pstmt.setString(2, book.getBook_title());
-            pstmt.setInt(3, book.getBook_price());
-            pstmt.setShort(4, book.getBook_count());
-            pstmt.setString(5, book.getAuthor());
-            pstmt.setString(6, book.getPublishing_com());
-			pstmt.setString(7, book.getPublishing_date());
-			pstmt.setString(8, book.getBook_image());
-			pstmt.setString(9, book.getBook_content());
-			pstmt.setByte(10, book.getDiscount_rate());
-			pstmt.setInt(11, bookId);
+            pstmt.setString(1, item.getIt_name());
+            pstmt.setInt(2, item.getIt_amount());
+            pstmt.setString(3, item.getIt_company());
+            pstmt.setTimestamp(4, item.getIt_deadline());
+            pstmt.setInt(5, item.getIt_cost());
+            pstmt.setString(6, it_num);
+			
             
             pstmt.executeUpdate();
             
@@ -424,7 +409,7 @@ public class MngrDBBean {
     }
     
     // bookId에 해당하는 책의 정보를 삭제시 사용하는 메소드
-    public void deleteBook(int bookId)
+    public void deleteItem(String it_num)
     throws Exception {
         Connection conn = null;
         PreparedStatement pstmt = null;
@@ -434,8 +419,8 @@ public class MngrDBBean {
 			conn = getConnection();
 
             pstmt = conn.prepareStatement(
-            	"delete from book where book_id=?");
-            pstmt.setInt(1, bookId);
+            	"delete from item where it_num=?");
+            pstmt.setString(1, it_num);
             
             pstmt.executeUpdate();
             

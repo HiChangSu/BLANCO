@@ -2,7 +2,7 @@ package bean;
 
 import java.sql.Timestamp;
 
-public class MngrDataBean {
+public class SellerDataBean {
 	private String it_num; //물품 번호
 	private String it_name; //물품 제목
 	private int it_amount; // 물품 개수
