@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -75,15 +76,43 @@
 	<body>
 		<header>
 			<div id="member">
-				<input type="button" value="로그아웃">
-				<input type="button" value="고객센터">
+				<c:if test="${empty sessionScope.id}">
+  					<ul>
+       					<li>
+       						<label for="id">아이디
+       							<input id="id" name="id" type="email" size="20" maxlength="50" placeholder="example@kings.com">
+       						</label>
+           					<label for="passwd">비밀번호
+           						<input id="passwd" name="passwd" type="password" size="20" placeholder="6~16자 숫자/문자" maxlength="16">
+           					</label>           					          
+           					<button id="login">로그인</button>
+           					<button id="create">회원가입</button>
+           					<button id="inquiry">고객센터</button>
+    				</ul>
+				</c:if>
 			</div>
 			<div id="menu">
-				<a href="#">상품관리</a>
-				<a href="#">주문관리</a>
-				<a href="#">고객관리</a>
-				<a href="#">게시판 관리</a>
-				<a href="#">상점관리</a>
+				<c:if test="${!empty sessionScope.id}">
+  					<div id="mList">
+     					<ul>
+					    	<li>상품관련 작업
+					    	<li><button id="registProduct">상품등록</button>
+					    	<li><button id="updateProduct">상품수정/삭제</button>
+					    </ul>
+					     <ul>
+					        <li>구매된 상품관련 작업
+					        <li><button id="orderedProduct">전체구매목록 확인</button>
+					     </ul>
+     					<ul>
+        					<li>상품 QnA 작업
+        					<li><button id="qna">상품 QnA답변</button>
+     					</ul>
+  					</div>
+				</c:if>     
+<!-- 				<a href="#">상품관리</a> -->
+<!-- 				<a href="#">주문관리</a> -->
+<!-- 				<a href="#">게시판 관리</a> -->
+<!-- 				<a href="#">상점관리</a> -->
 			</div>
 		</header>
 		
