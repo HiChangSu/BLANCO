@@ -40,21 +40,21 @@ public class SellerDBBean {
 		ResultSet rs= null;
 		int x=-1;
         
-		SHA256 sha = SHA256.getInsatnce();
+//		SHA256 sha = SHA256.getInsatnce();
 		try {
             conn = getConnection();
             
-            String orgPass = passwd;
-            String shaPass = sha.getSha256(orgPass.getBytes());
+//            String orgPass = passwd;
+//            String shaPass = sha.getSha256(orgPass.getBytes());
         	
             pstmt = conn.prepareStatement(
-              "select managerPasswd from manager where managerId = ?");
+              "select s_pw from seller where s_id = ?");
             pstmt.setString(1, id);
             rs= pstmt.executeQuery();
 
 			if(rs.next()){//해당 아이디가 있으면 수행
-				String dbpasswd= rs.getString("managerPasswd"); 
-				if(BCrypt.checkpw(shaPass,dbpasswd))
+				String dbpasswd= rs.getString("s_pw"); 
+				if(dbpasswd.equals(passwd))
 					x= 1; //인증성공
 				else
 					x= 0; //비밀번호 틀림

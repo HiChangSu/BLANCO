@@ -9,6 +9,6 @@ public class SellerLoginFormAction implements CommandAction {
 	public String requestPro(HttpServletRequest request,
 			HttpServletResponse response) throws Throwable {
 		
-		return "/mngr/logon/mLoginForm.jsp";
+		return "/seller/managerForm.jsp";
 	}
 }
