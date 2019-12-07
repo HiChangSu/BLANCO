@@ -25,6 +25,6 @@ public class SellerLoginProAction implements CommandAction {
 		request.setAttribute("check", new Integer(check));
 		request.setAttribute("id", id);
 		
-		return "/mngr/logon/mLoginPro.jsp";
+		return "/seller/logon/sLoginPro.jsp";
 	}
 }

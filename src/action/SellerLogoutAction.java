@@ -9,6 +9,6 @@ public class SellerLogoutAction implements CommandAction {
 	public String requestPro(HttpServletRequest request,
 			HttpServletResponse response) throws Throwable {
 		// TODO Auto-generated method stub
-		return "/mngr/logon/mLogout.jsp";
+		return "/seller/logon/sLogout.jsp";
 	}
 }
