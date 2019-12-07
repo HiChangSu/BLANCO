@@ -3,12 +3,15 @@ package action;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class SellerLoginFormAction implements CommandAction {
+public class GuestMainAction implements CommandAction {
 
 	@Override
 	public String requestPro(HttpServletRequest request,
 			HttpServletResponse response) throws Throwable {
+		// TODO Auto-generated method stub
 		
-		return "/mngr/logon/mLoginForm.jsp";
+		//Í¥?Î¶¨ÏûêÎ•? Íµ¨Î∂Ñ?ï† ?ïå ?Ç¨?ö©
+		request.setAttribute("type", new Integer(0));
+		return "/guest/guestMain.jsp";//?ùë?ãµ?éò?ù¥Ïß?
 	}
 }
