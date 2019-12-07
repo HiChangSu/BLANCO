@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <script src="/BLANCO/js/jquery-3.4.1.min.js"></script>
-<script src="/BLANCO/sellerMain.js"></script>
+<script src="/BLANCO/seller/sellerMain.js"></script>
 <!DOCTYPE html>
 <html>
 <head>
@@ -78,34 +78,22 @@
 	<body>
 		<header>
 			<div id="member">
-				<c:if test="${empty sessionScope.id}">
-  					<ul>
-       					<li>
-       						<label for="id">아이디
-       							<input id="id" name="id" type="email" size="20" maxlength="50" placeholder="example@kings.com">
-       						</label>
-           					<label for="passwd">비밀번호
-           						<input id="passwd" name="passwd" type="password" size="20" placeholder="6~16자 숫자/문자" maxlength="16">
-           					</label>           					          
-           					<button id="login">로그인</button>
-           					<button id="create">회원가입</button>
-           					<button id="inquiry">고객센터</button>
-           				</li>
-    				</ul>
+				<c:if test="${empty sessionScope.sid}">
+					<p>로그인 하세요</p>
 				</c:if>
-				<c:if test="${!empty sessionScope.id}">
+				<c:if test="${!empty sessionScope.sid}">
   					<ul>
        					<li>
        						<label for="">
-       							관리자 페이지에 오신것을 환영합니다.
+       							 스토어에 오신것을 환영합니다.
        						</label>
-           					<button id="logout">로그아웃</button>
+           					<button id="sLogout">로그아웃</button>
            				</li>
     				</ul>
 				</c:if>
 			</div>
 			<div id="menu">
-				<c:if test="${!empty sessionScope.id}">
+				<c:if test="${!empty sessionScope.sid}">
   					<div id="mList">
      					<ul>
 					    	<li>상품관련 작업

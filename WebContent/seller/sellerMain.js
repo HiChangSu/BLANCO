@@ -1,30 +1,6 @@
 var status = true;
 
 $(document).ready(function(){
-	$("#login").click(function(){
-		var query = {
-				id: $("#id").val(),
-				passwd:$("#passwd").val()
-		}
-		
-		$.ajax({
-			type:"POST",
-			url:"/BLANCO/mg/sellerLoginPro.do",
-			data:query,
-			success:function(data){
-				$(location).attr('href', "/BLANCO/sellerMain.jsp");
-			}
-		});
-	});
-	
-	$("#logout").click(function(){
-		$.ajax({
-			type:"POST",
-			url:"/BLANCO/mg/sellerLogout",
-			
-		});
-	});
-	
 	$("#registProduct").click(function(){//[상품등록]버튼 클릭
 		window.location.href("/BLANCO/mg/itemRegisterForm.do");
 	});

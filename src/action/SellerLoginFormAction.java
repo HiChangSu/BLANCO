@@ -10,6 +10,6 @@ public class SellerLoginFormAction implements CommandAction {
 			HttpServletResponse response) throws Throwable {
 		// TODO Auto-generated method stub
 		
-		return "/seller/sellerMain.jsp";
+		return "/seller/managerForm.jsp";
 	}
 }

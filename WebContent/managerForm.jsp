@@ -1,11 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-
+<script src="/BLANCO/WebContent/js/jquery-3.4.1.min.js"></script>
+<script src="/BLANCO/WebContent/managerForm.js"></script>
 <style type="text/css">
 	 * {
         margin: 0 auto;
@@ -71,7 +74,6 @@
      	margin-top:50px;
      }
 </style>
-
 </head>
 	<body>
 		<header>
@@ -79,30 +81,33 @@
 		</header>
 		<br>
 		<section>
-		
 			<div id="log">
 				로그인
 			</div>
-			
 			<article id="seller">
-					<div class="user">판매자 로그인</div>
+				<div class="user">판매자 로그인</div>
 					<div class="logwindow">
-						<input type="text" size="20" maxlength="50" placeholder="아이디">
-						<label><input type="checkbox" name="idbox" value="아이디저장">저장</label>
-						<br>
-						<input type="text" size="20" maxlength="50" placeholder="비밀번호">
-						<input type="button" id="loginbutton" name="loginbutton" value="로그인">
+						<c:if test="${empty sessionScope.sid}">
+							<input type="email" size="20" maxlength="50" placeholder="아이디" id="sid">
+							<label><input type="checkbox" name="idbox" value="아이디저장">저장</label>
+							<br>
+							<input type="password" size="20" maxlength="50" placeholder="비밀번호" id="spw">
+							<button id="sLogin">로그인</button>
+						</c:if>
+						<c:if test="${!empty sessionScope.sid}">
+							<p>로그인이 되어있습니다.</p>
+						</c:if>											
  					</div>
  			</article>
 			
 			<article id="manager">
 					<div class="user">관리자 로그인</div>
 					<div class="logwindow">
-						<input type="text" size="20" maxlength="50" placeholder="아이디">
+						<input type="email" size="20" maxlength="50" placeholder="아이디" id="mid">
 						<label><input type="checkbox" name="idbox" value="아이디저장">저장</label>
 						<br>
-						<input type="text" size="20" maxlength="50" placeholder="비밀번호">
-						<input type="button" id="loginbutton" name="loginbutton" value="로그인">
+						<input type="password" size="20" maxlength="50" placeholder="비밀번호" id="mpw">
+						<input type="button" id="mLogin" name="loginbutton" value="로그인">
  					</div>
 			</article>
 			
