@@ -11,7 +11,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>BLANCO</title>
 </head>
 	<body>
 		<div class="jumbotron text-center">
