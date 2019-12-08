@@ -10,10 +10,10 @@
 
 <div id="cata" class="box2">
 	<ul>
-		<li><a href="/shoppingmall/list.do?prd_kind=100">Mac</a>
-		<li><a href="/shoppingmall/list.do?prd_kind=200">iPad</a>
-		<li><a href="/shoppingmall/list.do?prd_kind=300">iPhone</a>
-		<li><a href="/shoppingmall/list.do?prd_kind=all">Time Market</a>
+		<li><a href="/BLANCO/list.do?prd_kind=100">세면도구</a>
+		<li><a href="/BLANCO/list.do?prd_kind=200">휴지/물티슈/생리대</a>
+		<li><a href="/BLANCO/list.do?prd_kind=300">욕실도구</a>
+		<li><a href="/BLANCO/list.do?prd_kind=all">주방/세탁</a>
 	</ul>
 </div>
 
@@ -22,7 +22,7 @@
 	<table class="vhcenter">
 		<tr height="30">
 			<td rowspan="6" width="150"><img
-				src="/shoppingmall/prdImage/${prd.getPrd_image()}"
+				src="/BLANCO/prdImage/${prd.getPrd_image()}"
 				class="contentimage"></td>
 			<td width="500"><b>${prd.getPrd_name()}</b></td>
 		</tr>

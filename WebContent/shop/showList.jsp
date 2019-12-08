@@ -8,10 +8,10 @@
 
 <div id="cata" class="box2">
   <ul>
-    <li><a href="/sample1/list.do?prd_kind=100">Mac</a>
-    <li><a href="/sample1/list.do?prd_kind=200">iPad</a>
-    <li><a href="/sample1/list.do?prd_kind=300">iPhone</a>
-    <li><a href="/sample1/list.do?prd_kind=400">TimeMarket</a>
+    <li><a href="/BLANCO/list.do?prd_kind=100">세면도구</a>
+    <li><a href="/BLANCO/list.do?prd_kind=200">휴지/물티슈/생리대</a>
+    <li><a href="/BLANCO/list.do?prd_kind=300">욕실도구</a>
+    <li><a href="/BLANCO/list.do?prd_kind=400">주방/세탁</a>
   </ul>
 </div>
 
@@ -43,10 +43,10 @@
     <table class="vhcenter">
       <tr height="30"> 
         <td rowspan="4"  width="100">
-          <a href="/shoppingmall/prdContent.do?prd_id=${prd.getPrd_id()}&prd_kind=${prd.getPrd_kind()}">
-             <img src="/shoppingmall/prdImage/${prd.getPrd_image()}" class="listimage"></a></td>
+          <a href="/BLANCO/prdContent.do?prd_id=${prd.getPrd_id()}&prd_kind=${prd.getPrd_kind()}">
+             <img src="/BLANCO/prdImage/${prd.getPrd_image()}" class="listimage"></a></td>
         <td width="350" class="vhcenter">
-          <a href="/shoppingmall/prdContent.do?prd_id=${prd.getPrd_id()}&prd_kind=${prd.getPrd_kind()}" class="b">
+          <a href="/BLANCO/prdContent.do?prd_id=${prd.getPrd_id()}&prd_kind=${prd.getPrd_kind()}" class="b">
               ${prd.getPrd_name()}</a></td>
         <td rowspan="4" width="100">
           <c:if test="${prd.getPrd_count()==0}">

@@ -3,7 +3,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <link rel="stylesheet" href="/shoppingmall/css/style.css"/>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-<script src="/shoppingmall/member/register.js"></script>
+<script src="/BLANCO/register.js"></script>
  
 <div id="regForm" class="box">
    <ul>

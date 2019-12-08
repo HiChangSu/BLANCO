@@ -34,7 +34,7 @@ $(document).ready(function(){
 		  
 		  $.ajax({
 		      type:"post",
-		      url:"/shoppingmall/registerPro.do",
+		      url:"/BLANCO/registerPro.do",
 		      data:query,
 		      success:function(data){
 		    	  $(location).attr('href', "/BLANCO/index.do");

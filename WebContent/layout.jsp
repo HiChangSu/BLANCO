@@ -8,12 +8,12 @@
 <div id="header">
 	<div id="logo" class="box">
 		<img class="noborder" id="logo" width="50" height="50px"
-			src="/shoppingmall/images/apple.png" />
+			src="/BLANCO/images/apple.png" />
 	</div>
 
 	<div id="auth" class="box">
 		<c:if test="${type == 0}">
-			<jsp:include page="mngr/logon/mLoginForm.jsp" />
+			<jsp:include page="/mngr/logon/mLoginForm.jsp" />
 		</c:if>
 		<c:if test="${type == 1}">
 			<jsp:include page="/guest/logon/gLoginForm.jsp" />
