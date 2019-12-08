@@ -12,15 +12,21 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+	#logout {
+		text-align:right;
+	}
+</style>
 </head>
 	<body>
 		<div class="jumbotron text-center">
+			<div id="logout">
+				<button type="button" class="btn btn-primary">로그아웃</button>
+				<button type="button" class="btn btn-primary">장바구니</button>
+				<button type="button" class="btn btn-primary">구매목록</button>
+			</div>
 	  		<h1>BLANCO</h1>
 	  		<p>BLANCO에 오신 것을 환영합니다!</p>
-		 	<input type="text" size="15" maxlength="50" placeholder="아이디">
-			<input type="text" size="15" maxlength="50" placeholder="비밀번호">
-			<button type="button" class="btn btn-primary">로그인</button>
-			<button type="button" class="btn btn-primary">회원가입</button>
 		</div>
   
 		<div class="container">

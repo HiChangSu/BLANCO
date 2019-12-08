@@ -14,7 +14,7 @@
            <label for="passwd">비밀번호</label>
            <input id="passwd" name="passwd" type="password" 
              size="20" placeholder="6~16자 숫자/문자" maxlength="16">
-           <button id="login">로그인</button>
+           <button class="btn">로그인</button>
     </ul>
  </div>
   

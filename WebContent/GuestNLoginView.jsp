@@ -16,7 +16,6 @@
 	<body>
 		<div class="jumbotron text-center">
 	  		<h1>BLANCO</h1>
-	  		<p>BLANCO에 오신 것을 환영합니다!</p>
 		 	<input type="text" size="15" maxlength="50" placeholder="아이디">
 			<input type="text" size="15" maxlength="50" placeholder="비밀번호">
 			<button type="button" class="btn btn-primary">로그인</button>
